@@ -28,6 +28,10 @@ namespace ProjetoPessoa
                 obj.Altura = double.Parse(txtAltura.Text);
                 MessageBox.Show("Dados armazenados.");
             }
+            catch (DivideByZeroException ex)
+            {
+                MessageBox.Show("Erro de Divisão por Zero.\n" + ex.Message);
+            }
             catch (FormatException ex)      //objeto ex armazena as informações geradas pela exceção
             {
                 MessageBox.Show("Erro de execução.\n" + ex.Message);
