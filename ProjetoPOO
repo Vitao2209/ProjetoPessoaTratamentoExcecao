@@ -1,0 +1,120 @@
+class Pessoa
+{
+     
+    private string nome;
+    private DateTime adataNascimento;
+    private double altura;
+ 
+    public string Nome
+    {
+       
+         set
+         {
+    
+            if (value != string.Empty) // != significa diferente
+            {
+               this.nome = value;
+            }
+            else
+            {
+               throw new Exception("O nome deve ser obrigatoriamente preenchido.");
+            }
+         }
+         get {return this.nome; }
+    }
+
+}
+
+
+
+public DateTime DataNascimento
+{
+  
+     set{ this.dataNascimento = value;}
+     get{return this.dataNascimento;}
+
+}
+
+public double Altura
+{
+
+    set
+    {
+   
+         if (value >= 1.00)
+         {
+             this.altura = value;
+         }
+         else
+         {
+            throw new Exception("A altura minima deve ser de 1.00m.");
+         }
+
+     {
+     get {return this.altura; }
+}
+
+
+
+
+      public string ImprimeDados()
+      {
+          return "Dados da pessoa: /n/nNome: " + this.nome +
+                 "nData de nascimento: " + this.dataNascimento.ToString("dd/MM/yyyy") +
+                 "nAltura: " + this.altura.ToString("0.00) + "m.";
+      }
+
+      public int CalcularIdade()
+      {
+         return DateTime.Now.Year - this.dataNascimento.Year;
+      }
+
+}
+
+
+
+
+public partial class Form1 : Form
+{
+    
+    public Form1()
+    {
+         InitializeComponent();
+    }
+
+    Pessoa obj = new Pessoa();
+    
+    private void btnEnviar_Click(object sender, EventArgs e)
+    {
+     
+        try
+        {
+           obj.Nome = txtNome.Text;
+           obj.DataNascimento = DataTime.Parse(txtDataNascimento.Text);
+           obj.Altura = double.Parse(txtAltura.Text);
+           MessageBox.Show("Dados armazenados");
+        }
+        catch (FormaException ex)
+        {
+            MessageBox.Show("Erro. \n" + ex.Message);
+        }
+        catch (Exception ex)
+        { 
+           MessageBox.Show("Erro. \n" + ex.Message);
+        }
+    }
+
+    private void btnCalcular_Click(object sender, EventArgs e)
+    {
+          MessageBox.Show("Dados obtidos: " + obj.ImprimeDdos() +
+                         "\n\nIdade.Text "+ obj.CalcularIdade().ToString("00"));
+          txtIdade.Text = obj.CalcularIdade().ToString();
+    }
+}
+             
+
+
+
+
+
+
