@@ -40,8 +40,16 @@ namespace ProjetoPessoa
         {
             set 
             {
-                                  this.altura = value;
-                         }
+              if (value >= 1)
+                {
+                    this.altura = value;
+                }
+              else
+                {
+                    throw new Exception("A altura deverá ser maior que 1 metro.");
+                }
+              
+            }
             get { return this.altura; }
         }
 

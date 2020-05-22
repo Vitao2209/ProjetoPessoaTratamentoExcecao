@@ -81,7 +81,7 @@
             this.btnEnviar.Name = "btnEnviar";
             this.btnEnviar.Size = new System.Drawing.Size(221, 30);
             this.btnEnviar.TabIndex = 5;
-            this.btnEnviar.Text = "ENVIAR dados";
+            this.btnEnviar.Text = "Criar Objetos";
             this.btnEnviar.UseVisualStyleBackColor = true;
             this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
